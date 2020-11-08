@@ -1,14 +1,9 @@
 +++
-title = "About Hugo"
-description = "Hugo, the world’s fastest framework for building websites."
+title = "About Me"
 date = 2020-04-11T19:15:32+08:00
 showLicense = false
 showToc = false
 +++
-
-# :wave: Hi.
-
-Welcome to my personal site. I use this site to present my abridged CV and also store technical guides for my own easy access. If it helps others, all the better! Feel free to contact me if you have any questions!
 
 # :japanese_ogre: Who am I?
 
@@ -20,7 +15,7 @@ My actual degree is an Associate's in Electronic Communications Technology (basi
 
 **Broadcast Exchange** - Junior Partner  
 *2010 - 2015*  
-Family business. In my time working here I managed our brand and marketing assets, built a website with ecommerce integration, and of course managed and listed our inventory of used Audio / Video equipment for sale both on our own site and on eBay.
+Family business. In my time working here I managed our brand and marketing assets, patched together a (now defunct) website with ecommerce integration, and of course managed and listed our inventory of used Audio / Video equipment for sale both on our own site and on eBay.
 
 **Alphanet Informatics** - IT Operations Adviser  
 *2017 - 2019*  

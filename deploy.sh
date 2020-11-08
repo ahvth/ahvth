@@ -22,4 +22,4 @@ fi
 git commit -m "$msg"
 
 # Push source and build repos
-git push origin master
+GIT_SSH_COMMAND='ssh -i /home/andrew/.ssh/ahvth.github.io -o IdentitiesOnly=yes' git push origin master

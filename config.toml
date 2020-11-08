@@ -1,4 +1,4 @@
-baseURL = "https://ahvth.github.io"
+baseURL = "https://ahvth.xyz"
 title = "ahvth.xyz"
 
 theme = "fuji"
@@ -31,8 +31,7 @@ paginate = 10
   post = "/:section/:filename/" # Custom post links, e.g. "/:year/:month/:title/"
 
 [params]
-  author = "Andrew Horvath" # You can also set author in post front matter individually
-  subTitle = "Andrew Horvath's website."
+  subTitle = "It's just a blog."
 
   # Source URL of the website, will appear in the footer
   sourceURL = "https://ahvth.xyz"
@@ -63,9 +62,7 @@ paginate = 10
 
   # Open Graph & Twitter Card variables
   # You can also set description and images in post front matter individually
-  description = "Andrew Horvath's website."
-  images = ["img/og.png"] # This will use the image called og.png in static/img folder
-
+  description = "It's a blog."
   # Posts shown in homepage
   mainSections = ["post"]
 
@@ -74,7 +71,7 @@ paginate = 10
 
   # License
   license = "CC BY-NC-SA 4.0"
-  licenseLink = "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+  licenseLink = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
   # Comments
   # utterances, see: https://utteranc.es/
@@ -136,10 +133,6 @@ paginate = 10
     weight = 5
 
   [[menu.link]]
-    name = "LinkedIn"
-    url = "https://linkedin.com/in/ahvth"
+    name = "GitHub"
+    url = "https://github.com/ahvth"
     weight = 1
-  [[menu.link]]
-    name = "Nextcloud"
-    url = "https://nc.ahvth.xyz"
-    weight = 2
