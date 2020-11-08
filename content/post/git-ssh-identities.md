@@ -36,7 +36,7 @@ fi
 git commit -m "$msg"
 
 # Push source and build repos
-GIT_SSH_COMMAND='ssh -i /home/andrew/.ssh/associated_private_key -o IdentitiesOnly=yes' git push origin master
+GIT_SSH_COMMAND='ssh -i /home/user/.ssh/associated_private_key -o IdentitiesOnly=yes' git push origin master
 ```
 
 This lets you issue `./repo-push.sh "optional commit message"` instead of your usual `git push` and can even be further parameterized to accept a different git command, remote, or branch.
