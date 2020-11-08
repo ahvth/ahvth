@@ -1,0 +1,7 @@
+[submodule "themes/fuji"]
+	path = themes/fuji
+	url = https://github.com/amzrk2/hugo-theme-fuji.git
+[submodule "public"]
+	path = public
+	url = git@github.com:ahvth/ahvth.github.io.git
+	branch = master
