@@ -64,3 +64,11 @@ footer .footer {
 .markdown-body hr {
   color: var(--color-divider)
 }
+
+header, .page-info {
+    border-bottom: none;
+}
+
+.post+.post, .pagination, footer {
+    border-top: none;
+}

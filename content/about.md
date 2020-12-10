@@ -5,13 +5,13 @@ showLicense = false
 showToc = false
 +++
 
-# :japanese_ogre: Who am I?
+### :japanese_ogre: Who am I?
 
 I am a Free Software enthusiast and IT professional - originally from the USA, living and working in beautiful Budapest, Hungary. Did I mention that I'm passionate about Free Software?
 
 My actual degree is an Associate's in Electronic Communications Technology (basically a radio technician) from Los Angeles Trade Technical College, but most of my work has been in IT, and over the years, that's the area I feel most at home.  
 
-# :briefcase: Some places I've worked...
+### :briefcase: Some places I've worked...
 
 **Broadcast Exchange** - Junior Partner  
 *2010 - 2015*  
@@ -29,7 +29,7 @@ My short but sweet foray into the startup world - helping Bitrise users build, t
 *2020 -*  
 Managing Openshift clusters on a handful of cloud solutions, including Telekom's own Open Telekom Cloud.  
 
-# :computer: Non-exhaustive list of technologies I (have) work(ed) with:
+### :computer: Non-exhaustive list of technologies I (have) work(ed) with:
 
 * GNU / Linux *(most of them)* :heart:
 * Kubernetes
@@ -41,7 +41,7 @@ Managing Openshift clusters on a handful of cloud solutions, including Telekom's
 * Python :snake:
 * CI/CD (from homebrew to ready-made solutions)
 
-# :test_tube: Non-exhaustive list of technologies I dabble in:
+### :test_tube: Non-exhaustive list of technologies I dabble in:
 
 * HTML, CSS, and CMS Systems *(I am not a Web Developer)*
 * Keras
@@ -50,5 +50,5 @@ Managing Openshift clusters on a handful of cloud solutions, including Telekom's
 * Arch toolset :clown:
 * Virtualization with libvirt / QEMU / KVM
 
-# To sum up:
+### To sum up:
 I love Free Software, I use Linux every day. For everything. I don't like MacOS or Windows, but I will use them for :dollar: if I **must**. (I actually know a thing or two about them as well.) My main hobby and career motivation is to learn more about the technologies I am interested in and to create and promote the use of Free Software.

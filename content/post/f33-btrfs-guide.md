@@ -1,6 +1,6 @@
 ---
-title: "Getting Started with BTRFS Snapshotting"
-tags: ["guide", "brfs", "backup", "snapshotting"]
+title: "Getting Started with BTRFS Snapshots in Fedora 33"
+tags: ["guide", "btrfs", "backup", "snapshotting"]
 date: 2020-11-08T19:46:59+01:00
 draft: false
 ---
@@ -98,11 +98,13 @@ We can see that `/beacon` was added, and there were some changes in my system lo
 sudo snapper -c root undochange 1..2
 ```
 
-You should see that the root folder was reset to the state in the `base` snapshot, and the `/beacon` folder is now gone! You can roll back really complex changes in realtime while the filesystem is active, no problemo!
+You should see that the root folder was reset to the state in the `base` snapshot, and the `/beacon` folder is now gone! You can roll back really complex changes in realtime while the filesystem is active, but it's probably best to ignore directories that you know are in frequent motion to avoid data inconsistency issues, as BTRFS doesn't do any data consistency checks on snapshotting. One way to do that would be to put those directories in separate subvolumes to avoid them being captured in a snapshot of their parent subvolume.
+
+> To do: investigate implementing snapper / grub implementation on Fedora for more reliable rollbacks!
 
 ## Automating Snapshotting
 
-Now that we know the basic commands to manage snapshots, let's set up an automated `timeline` snapshot. This is enabled by default in the config's configuration file, which will be located at `/etc/snapper/configs/root`. All we really need to do is turn on the associated systemd timer and set a snapshot retention policy that's sympathetic to us. I have some space to spare and I'd like to have the freedom to make some bigger rollbacks (in case it takes me a while to realize there's an issue I need to rollback for), so I told snapper to retain 72 snapshots. We'll see over time if that's using too much space, but I find it unlikely, considering all the snapshots I've seen so far are under 50MB and usually under 10MB. Here's the relevant section in `/etc/snapper/configs/root`:
+Now that we know the basic commands to manage snapshots, let's set up an automated `timeline` snapshot. This is enabled by default in the config's configuration file, which will be located at `/etc/snapper/configs/root`. All we really need to do is turn on the associated systemd timer and set a snapshot retention policy that's sympathetic to us. I have some space to spare and I'd like to have the freedom to make some bigger rollbacks (in case it takes me a while to realize there's an issue I need to rollback for), so I told snapper to retain 12 daily snapshots. Here's the relevant section in `/etc/snapper/configs/root`:
 
 ```
 # cleanup hourly snapshots after some time
@@ -110,14 +112,21 @@ TIMELINE_CLEANUP="yes"
 
 # limits for timeline cleanup
 TIMELINE_MIN_AGE="1800"
-TIMELINE_LIMIT_HOURLY="72"
-TIMELINE_LIMIT_DAILY="10"
+TIMELINE_LIMIT_HOURLY="10"
+TIMELINE_LIMIT_DAILY="12"
 TIMELINE_LIMIT_WEEKLY="0"
 TIMELINE_LIMIT_MONTHLY="10"
 TIMELINE_LIMIT_YEARLY="10"
 ```
 
-All that's left at this point is to activate the systemd timer:
+In order for the cleanup to take effect, we need to activate the related systemd timer:
+
+```
+sudo systemctl enable snapper-cleanup.timer
+sudo systemctl start snapper-cleanup.timer
+```
+
+All that's left at this point is to activate the systemd timer for the actual snapshotting service:
 
 ```
 sudo systemctl enable snapper-timeline.timer
@@ -159,10 +168,6 @@ If we wait a couple hours, we should see that our `snapper -c root list` table i
  7  | single |       | Sat 07 Nov 2020 04:00:23 PM CET | root |   7.51 MiB | timeline | timeline    |         
  8  | single |       | Sat 07 Nov 2020 05:00:23 PM CET | root |   8.40 MiB | timeline | timeline    |         
  9  | single |       | Sat 07 Nov 2020 06:00:23 PM CET | root |  83.77 MiB | timeline | timeline    |         
-10  | single |       | Sat 07 Nov 2020 07:00:23 PM CET | root |   1.59 MiB | timeline | timeline    |         
-11  | single |       | Sat 07 Nov 2020 08:00:23 PM CET | root | 956.00 KiB | timeline | timeline    |         
-12  | single |       | Sat 07 Nov 2020 09:00:23 PM CET | root |   7.96 MiB | timeline | timeline    |         
-13  | single |       | Sat 07 Nov 2020 10:00:23 PM CET | root | 516.00 KiB | timeline | timeline    |
 ```
 
 And that's it!
