@@ -399,13 +399,19 @@ systemctl enable lightdm
 systemctl enable lxdm
 ```
 
-#### Initializing the network daemon
+#### Initializing network services
 
 > Some DE packages may not include a network manager, NetworkManager is recommended
 
 ```
 pacman -S networkmanager
 systemctl enable NetworkManager.service
+```
+
+> Arch has recently migrated to using `systemd-resolved` for DNS resolution. This systemd service must be manually enabled as part of the installation.
+
+```
+systemctl enable systemd-resolved
 ```
 
 #### Reboot
